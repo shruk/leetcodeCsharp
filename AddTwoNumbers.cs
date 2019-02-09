@@ -84,7 +84,7 @@ public class Solution {
     }
 }
 
-    public class UnitTest1
+    public class AddTwoNumbers
     {
         [Fact]
         public void Test1()
@@ -95,6 +95,10 @@ public class Solution {
             Assert.Equal(l2.ToString(),"2");
             ListNode l3=Solution.AddTwoNumbers(l1,l2);
             Assert.Equal(l3.ToString(),"3");
+            l1.next=new ListNode(2);//l1: 1->2   (21)
+            l2.next=new ListNode(5);//l2: 2->5   (52)
+            l3=Solution.AddTwoNumbers(l1,l2);     //l3 3->7
+            Assert.Equal("37",l3.ToString());
         }
     }
 }
