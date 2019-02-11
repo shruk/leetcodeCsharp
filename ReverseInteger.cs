@@ -8,6 +8,7 @@ namespace ReverseInteger
     public class Solution {
     
     //another normal solution without considering negative/boundries etc.
+    //original solution
     public int Reverse(int x) {
         int number=0;
         List<int> li=new List<int>();

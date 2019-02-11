@@ -5,7 +5,7 @@ using Xunit;
 namespace IsPalindrome
 {
 
-    public class Solution {
+    public class Solution {//original solution
     public static bool IsPalindrome(int x) {
         int result=0;
         int temp=0;
