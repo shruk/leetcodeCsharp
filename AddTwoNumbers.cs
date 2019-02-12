@@ -82,7 +82,15 @@ public class Solution {
         return l3;
         
     }
+
+    public static ListNode AddTwoNumbers2(ListNode l1, ListNode l2){
+        return null;
+    }
+
 }
+
+
+
 
     public class AddTwoNumbers
     {
