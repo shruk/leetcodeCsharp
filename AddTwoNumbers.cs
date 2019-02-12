@@ -83,10 +83,65 @@ public class Solution {
         
     }
 
+//using guideline of adding digit by digit, the solution is not idea but it is correct for approval!
     public static ListNode AddTwoNumbers2(ListNode l1, ListNode l2){
-        return null;
-    }
+           int loop=leng(l1)>leng(l2)?leng(l1):leng(l2);
+        ListNode result=null;
+        ListNode current=null;
+        bool carry=false;
+        int val;
+                
+              for (int i=0;i<loop;i++)
+                {
+                    int value1;
+                    int value2;
 
+                   if (carry)
+                    {val=1;}
+                   else {val=0;}
+                    
+                    if (l1!=null)
+                    {value1=l1.val;
+                    l1=l1.next;}
+                    else{value1=0;}
+                     if (l2!=null)
+                    {value2=l2.val;l2=l2.next; }
+                    else{value2=0;}
+
+
+                   val+=value1 +value2;
+                   
+
+                    int d;
+                    if (val>=10){ d=val%10;
+                     carry=true;}
+                    else {d=val;carry=false;}
+
+                    ListNode newnode=new ListNode(d);
+                    if (result ==null){result=newnode;current=result;}
+                    else{current.next=newnode;current=newnode;}
+
+                }
+        
+                        if (carry)
+                {
+                    ListNode newnode1=new ListNode(1);
+                    current.next=newnode1;}
+
+
+        return result;
+    }
+    
+        private static int leng(ListNode li)
+    {   int len=0;
+        ListNode current=li;
+          while(current!=null)
+          {
+              len+=1;
+              current=current.next;
+          } 
+          return len;
+    }
 }
 
 
