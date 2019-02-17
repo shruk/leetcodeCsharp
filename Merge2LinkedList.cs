@@ -18,7 +18,7 @@ public class Solution {
     
     static ListNode final;
     
-  public  ListNode MergeTwoLists(ListNode l1, ListNode l2) {
+  public  static ListNode MergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy=new ListNode(0);//this is for the final output, the dummy will point to l3;
         ListNode l3=dummy;
         

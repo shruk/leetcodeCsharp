@@ -1,6 +1,8 @@
 
 using System.Collections.Generic;
 using Xunit;
+
+namespace BT_PreorderTraversal{
 /**
 * Definition for a binary tree node.*/
 public class TreeNode {
@@ -47,3 +49,4 @@ public class Solution {
             //node.
         }
     }
+}
