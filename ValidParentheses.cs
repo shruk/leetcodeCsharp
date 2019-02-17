@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 
+
+namespace ValidParentheses{
 //not a bad solution start initially!
 public class Solution{
 public bool IsValid(string s) {
@@ -42,4 +44,6 @@ public bool IsValid(string s) {
         
         }
         
+    }
+
     }
