@@ -1,3 +1,4 @@
+using System;
 using Xunit;
 
 namespace ArrayPlusOne{
@@ -7,7 +8,6 @@ public class Solution {
         
         int len=digits.Length;
         
-        Console.Write(len);
         bool moveLeft=false;
         if (digits[len-1]<9)
         {
