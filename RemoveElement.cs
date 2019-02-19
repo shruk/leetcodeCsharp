@@ -55,7 +55,7 @@ public class Solution {
         return i;
         
     }
-    public class RemoveElement
+    public class RemoveElementTest
     {
         [Fact]
         public void Test1()
