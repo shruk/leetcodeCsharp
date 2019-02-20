@@ -38,6 +38,19 @@ public class Solution {
         
     }
 
+    //solution on line， pay attention to the syntax as well as the logic!
+    public static void Merge_Online(int[] nums1, int m, int[] nums2, int n) {
+       int k=m+n-1;//index for end of nums1
+        int i=m-1;//end index of nums1
+        int j=n-1;//end index of nums2
+        
+        while(i>=0 && j>=0)
+        {   nums1[k--]=nums2[j]>nums1[i]?nums2[j--]:nums1[i--]; }
+        while(j>=0)
+        {nums1[k--]=nums2[j--];}
+    }
+
+
 }
     public class MergeSortedArrayTest
     {
