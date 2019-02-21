@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Xunit;
 
 namespace ContainsDup219{
 
@@ -76,7 +77,7 @@ namespace ContainsDup219{
          return false;
         }
 
-//use hashset, this one is not fast...
+//use hashset, this one is not fast... as the core idea is still the same as naive solution
 
          public bool ContainsNearbyDuplicate_hashset(int[] nums, int k){
          int i=nums.Length;
@@ -99,10 +100,47 @@ namespace ContainsDup219{
          return false;
         }
 
+//we need to convert time complexity into space, using a hashtable (Dictionary in c#)
+//this solution is better, remember dictionary operation is important!, containsKey, Add, TryGetValue
 
-
+        public static bool ContainsNearbyDuplicate_Dictionary(int[] nums, int k){
+         int i=nums.Length;
+         if (i==0)return false;
+         Dictionary<int,int> dict=new Dictionary<int, int>();
+         int s=0;
+         //for each item in array, check if dup is in k range.
+         while(s<=i-1){
+             int j;
+             //check if the same value already in dict
+             if (dict.TryGetValue(nums[s],out j))
+             {//found, 
+                if (s-j<=k&&j!=s)return true;
+             }
+             
+             if (dict.ContainsKey(nums[s]))
+             {
+                 //replace the old key with new key
+                dict[nums[s]]=s;
+             }else {
+             dict.Add(nums[s],s);
+            }
+           
+            s++;
+         }
+         return false;
+        }
     }
 
-}
+        public class ContainsDup219
+    {
+        [Fact]
+        public void Test1()
+        {   
+            int[] nums=new int[]{1,2,3,1,2,3};
+            Assert.False(Solution.ContainsNearbyDuplicate_Dictionary(nums,2));
+        }
+    }
+
+
 
 }
