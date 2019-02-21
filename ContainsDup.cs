@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace ContainsDup{
@@ -50,6 +51,19 @@ namespace ContainsDup{
         return false;
     }
 
+    //try to use sort first, after sort, we can check if adjcent item are equal
+    public bool ContainsDuplicate4 (int[] nums){
+            int len=nums.Length;
+            if (len==0) return false;
+            
+            Array.Sort(nums);
+            for(int i=1;i<=len-1;i++)
+            {
+                if(nums[i-1]==nums[i])return true;
+                
+            }
+            return false;
+    }
    }
 
 
