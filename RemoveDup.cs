@@ -1,3 +1,5 @@
+using Xunit;
+
 namespace RemoveDup{
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
@@ -14,5 +16,12 @@ public class Solution {
         
     }
 }
-l
+
+    public class RemoveDupTest
+    {
+        [Fact]
+        public void Test1()
+        {
+        }
+    }
 }
