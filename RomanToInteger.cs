@@ -53,7 +53,7 @@ public class Solution {
                 else if (s[i+1].Equals('M'))
                 {result+=900;i+=1;continue;}
                 else{result+=C;}}
-                                catch(System.IndexOutOfRangeException ex)
+                 catch(System.IndexOutOfRangeException ex)
                 {
                    result+=C;
                 }
