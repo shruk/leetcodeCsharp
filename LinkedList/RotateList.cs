@@ -17,9 +17,9 @@ public class Solution {
         ListNode tailParent;
         dummy.next=head;
         
-        //nothing
+        //if list is nothing, return nothing as well
         if (head==null) return null;
-        //just one head
+        //if there is only one head, return head its self.
         if (head.next==null) return head;
         
         while(k>0)
