@@ -129,6 +129,22 @@ namespace ContainsDup219{
          }
          return false;
         }
+
+        //another solution to save more spaces via sliding window, using Hashset
+         public static bool ContainsNearbyDuplicate_HashSet(int[] nums, int k){
+         int i=nums.Length;
+         if (i==0)return false;
+         HashSet<int> hs=new HashSet<int>();
+         int s=0;
+         //for each item in array, check if dup is in k range.
+         while(s<=i-1){
+             
+             
+           
+            s++;
+         }
+         return false;
+        }
     }
 
         public class ContainsDup219
