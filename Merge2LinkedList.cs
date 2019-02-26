@@ -31,7 +31,7 @@ public class Solution {
         
         if (l1==null&&l2!=null){l3.next=l2;}
         if (l2==null&&l1!=null){l3.next=l1;}
-        if (l1==null&l2==null){l3=l3;}
+        if (l1==null&l2==null){}
         
         return dummy.next;
     }
