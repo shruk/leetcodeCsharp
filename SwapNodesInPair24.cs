@@ -30,7 +30,7 @@ namespace SwapNodesInPair{
 		    	head=next2;
 	    	}	
     	
-    	
+    	return start.next;
     	
     	
     	}
