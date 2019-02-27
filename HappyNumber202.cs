@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace HappyNumber{
     public class Solution {
     public bool IsHappy(int n) {
@@ -26,4 +28,5 @@ namespace HappyNumber{
 		    	}
 		    return temp;
 		}
+}
 }
