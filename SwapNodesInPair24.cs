@@ -1,5 +1,11 @@
 namespace SwapNodesInPair{
     public class solution{
+
+		public class ListNode {
+      public int val;
+      public ListNode next;
+      public ListNode(int x) { val = x; }
+  }
     	public ListNode SwapNodes(ListNode head)
 	    {
 	    		    	//test, this is a c# file
