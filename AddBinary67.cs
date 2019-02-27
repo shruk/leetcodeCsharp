@@ -7,10 +7,11 @@ public class Solution{
     //a is 3 b is 1 sum is 4 
     //one method is to convert them into decimal and add, then convert back
     //convert string to number first
-    int ia=Convert.ToInt32(a);
-    int ib=Convert.ToInt32(b);
-    int sum=ia+ib;
-    return Convert.ToBinary(sum); 
+    //int ia=Convert.ToInt32(a);
+    //int ib=Convert.ToInt32(b);
+    //int sum=ia+ib;
+    //return Convert.ToBinary(sum); 
+    return null;
     }
 	}
 }

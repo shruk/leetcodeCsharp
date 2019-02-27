@@ -1,7 +1,10 @@
+using System;
+using Xunit;
+
 namespace CountAndSay
 {
     public class Solution{
-        public string CountAndSay(int n)
+        public static string CountAndSay(int n)
         {
         
         //1 read as one 1 or 11
@@ -13,38 +16,54 @@ namespace CountAndSay
         int i=2;
         if (n==1) {return "1";}
         else{
-
+           string nextStr="1";
         		while(i<=n)
         		{
-        		  string str=read(i.ToString());
+        		  nextStr=read(nextStr);
               i++;
         		}
+            return nextStr;
         	}
          
         }
         
         
         
-        private string read(string n)
+        private static string read(string n)
         {//read each char of n from left to right and return a new string
         //the rule is read current char and next, if same go to one more
         //else print out number of times repitition and the char itself
-        string result;
+        string result=null;
+        int rep=1;
         for (int i=0;i<n.Length;i++)
         	{
-        		int rep=1;
         		if(i==n.Length-1){//last digits,
-        			}
+             string first = rep.ToString();
+        		 string second= n[i].ToString();
+        		 result+=first+second;
+        		break;
+            	}
         		if(n[i]==n[i+1]){//rep happens
         		rep++;}
         		else{//need to print it out
         		 string first = rep.ToString();
-        		 string second= n[i];
-        		 string result+=first+second;
+        		 string second= n[i].ToString();
+        		 result+=first+second;
+             rep=1;
         		}	
         	}
         
         return result;
+        }
+    }
+
+    
+    public class CountAndSay
+    {
+        [Fact]
+        public void Test1()
+        {
+            Solution.CountAndSay(121);
         }
     }
 }
