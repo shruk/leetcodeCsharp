@@ -63,7 +63,7 @@ namespace CountAndSay
         [Fact]
         public void Test1()
         {
-            Solution.CountAndSay(121);
+            Solution.CountAndSay(6);
         }
     }
 }
