@@ -11,35 +11,29 @@ namespace ReverseLinkedList
   }
  
 public class Solution {
+    //this solution is ok but not ideal as created extra vairable and complexity...
     public static ListNode ReverseList(ListNode head) {
         ListNode dummy=new ListNode(0);
         ListNode newList=dummy;
         
         if (head==null)return null;
-        
-        
-        //put first one in
-        
-        //dummy.next=head;
-        //head=head.next;
-        //newList=newList.next;
-        
         while (head!=null)
         {
-            newList=dummy.next;
-            dummy.next=head;
-            head=head.next;
-            dummy.next.next=newList;
-            newList=dummy.next;
-            
-            
+            newList=dummy.next;//hold current dummy.next
+            dummy.next=head;//point dummy to the new head
+            head=head.next;//move head to next
+            dummy.next.next=newList;//connect head to current new list
+            newList=dummy.next;//move new to the new head
         }
-        
-        
-        
         return dummy.next;
-        
     }
+
+    public static ListNode ReverseList2(ListNode head){
+        ListNode dummy;
+        while (head!=null){}
+        return null;
+    }
+
 }
 
     public class ReverseLinkedListTest
