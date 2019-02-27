@@ -10,11 +10,14 @@ namespace CountAndSay
         //1211 read as one 1 one 2 2 1 or 111221
         //111221 read as 3 1 2 2 one 1 or 312211
         //312211 read s 13 11 22 2 1
-        if (n==1) return 1;
+        int i=2;
+        if (n==1) {return "1";}
         else{
+
         		while(i<=n)
         		{
-        		  string str=read(i)
+        		  string str=read(i.ToString());
+              i++;
         		}
         	}
          
@@ -26,6 +29,7 @@ namespace CountAndSay
         {//read each char of n from left to right and return a new string
         //the rule is read current char and next, if same go to one more
         //else print out number of times repitition and the char itself
+        string result;
         for (int i=0;i<n.Length;i++)
         	{
         		int rep=1;
@@ -34,7 +38,7 @@ namespace CountAndSay
         		if(n[i]==n[i+1]){//rep happens
         		rep++;}
         		else{//need to print it out
-        		 string first = rep.toString();
+        		 string first = rep.ToString();
         		 string second= n[i];
         		 string result+=first+second;
         		}	
