@@ -51,7 +51,7 @@ public class Solution {
         
     }
 
-
+    // a better solution
     public ListNode RotateRight2(ListNode head, int k){
 
          ListNode tail;
