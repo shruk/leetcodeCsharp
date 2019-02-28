@@ -93,5 +93,37 @@ public class Solution {
         }
         return start.next;
     }
+
+    //correct way!
+    public ListNode RotateRight3(ListNode head, int k)
+        {
+         ListNode tail;
+         ListNode start=null;
+         tail=head;
+         if (head==null) return null;
+            //link to a ring
+         int count=1;
+        //get numbers of nodes
+        while(tail.next!=null)
+        {
+            tail=tail.next;
+
+            count++;
+        }
+        tail.next=head;
+        int R=k%count;//real number of times need to rotate to right.
+
+        int i=count-R; //index of the next head starting from 0..1..
+        while(i>0)
+        {
+            start=head;
+            head=head.next;
+            i--;
+        }    
+        start.next=null;
+            
+            
+        return head;
+        }
     }
 }
