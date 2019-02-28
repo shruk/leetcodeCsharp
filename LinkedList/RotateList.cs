@@ -11,7 +11,7 @@ public class Solution {
     //the original solution works but too slow！！！
     public static ListNode RotateRight(ListNode head, int k) {
         
-        ListNode dummy=new ListNode(0);
+        ListNode dummy=new ListNode(0);//create
         ListNode ori=head;
         ListNode tail;
         ListNode tailParent;
@@ -50,5 +50,55 @@ public class Solution {
         return dummy.next;
         
     }
+
+
+    public ListNode RotateRight2(ListNode head, int k){
+
+         ListNode tail;
+        ListNode tailParent;
+        ListNode start=new ListNode(0);
+        start.next=head;
+        tail=head;
+        tailParent=start;
+
+        if (head==null) return null;
+        //if there is only one head, return head its self.
+        if (head.next==null) return head;
+               
+        int count=1;
+        //get numbers of nodes
+        while(tail.next!=null)
+        {
+            tailParent=tail;
+            tail=tail.next;
+
+            count++;
+        }
+
+        int R=k%count;//real number of times need to rotate to right.
+     
+        while (R>0)
+        {
+            start.next=tail;
+            tailParent.next=null;
+            R--;
+            tail.next=head;
+            head=tail;
+
+            while(tail.next!=null)
+            {
+            tailParent=tail;
+            tail=tail.next;
+            }
+        }
+        return start.next;
+
+
+
+
+    }
+
+
+
     }
 }
