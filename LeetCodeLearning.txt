@@ -1,0 +1,13 @@
+LinkedList:
+    -use a dummy ListNode head to help build the new LinkedList
+    e.g. ListNode<T> dummy=new ListNode<T>(0);
+
+HashSet:
+    HashSet<T> only allow unique Item to be stored so 
+    HashSet.Add(T) returns false if dup is found.
+
+String
+    String has indexer so String[] can be used to get char
+    Also string implement IEnumerable so foreach can also be applied.
+
+Array.Copy(Array,Int32,Array,Int32,Int32)// (source,sourceidx,dest,destidx,len);
