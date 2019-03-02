@@ -34,6 +34,27 @@ namespace ReverseInteger
         return number;
         
     }
+    
+    public int Reverse2(int x){
+    	//push and pop into queue
+    	bool isNeg=false;
+    	if (x<0){isNeg=true;}
+    	Queue<int> q=new Queue<int>();
+    	while (x>0)
+    	{
+    		int d=x%10;
+    		q.Push(d);
+    		x=x/10;
+    	}
+    	int result;
+    	while(q.peek())
+    	{
+    		result=result*10+q.pop();
+    	}
+    	
+    	if (isNeg){return (0-result);}
+    	return result;
+    }
 }
     public class ReverseInteger
     {
