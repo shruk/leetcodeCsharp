@@ -3,10 +3,10 @@ namespace LongestCommonPrefix{
 		public string LongestCommonPrefix(string [] str)
 		{
 			 string com="";
-        if (strs.Length==0) return "";
+        if (str.Length==0) return "";
         
-	        com=strs[0];		
-			foreach (string s in strs)
+	        com=str[0];		
+			foreach (string s in str)
 			{
 				com=common(com,s);
 			}
