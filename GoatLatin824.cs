@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Xunit;
+
 namespace GoatLatin824{
 	public class Solution {
 	
@@ -20,19 +23,33 @@ namespace GoatLatin824{
         int index=1;
         string newWords=null;
         foreach (string t in words)
-        {
-        		if (chars.contains(t[0])){t+="ma";}
-        		else{t=t.Substring(1,t.Length-1)+t[0]+"ma";}
+        {   string temp=null;
+        		if (chars.Contains(t[0])){temp=t+"ma";}
+        		else{temp=t.Substring(1,t.Length-1)+t[0]+"ma";}
         		int times=index;
         		while(times>0)
-        		{t+='a';
+        		{temp+='a';
         		times--;}
         		
         	index++;
-        	newWords+=t+' '; 
+        	newWords+=temp+' '; 
         }
         
         return newWords.Trim();
     	}
 	}
+
+    public class TestGoatLatin{
+
+        [Fact]
+        public void testGoatLatin(){
+            Solution s=new Solution();
+            string str="I speak Goat Latin";
+            Assert.Equal("Imaa peaksmaaa oatGmaaaa atinLmaaaaa",s.toGoatLatin(str));
+                
+            string str2="The quick brown fox jumped over the lazy dog";
+            Assert.Equal("heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa",s.toGoatLatin(str2));
+        }
+
+    }
 }

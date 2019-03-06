@@ -43,13 +43,13 @@ namespace ReverseInteger
     	while (x>0)
     	{
     		int d=x%10;
-    		q.Push(d);
+    		q.Enqueue(d);
     		x=x/10;
     	}
-    	int result;
-    	while(q.peek())
+    	int result=0;
+    	while(q.Peek()!=null)
     	{
-    		result=result*10+q.pop();
+    		result=result*10+q.Dequeue();
     	}
     	
     	if (isNeg){return (0-result);}
