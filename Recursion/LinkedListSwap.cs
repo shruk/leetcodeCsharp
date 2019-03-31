@@ -54,10 +54,10 @@ namespace leetcodeCsharp.Recursion
         }
     }
 
-    public class TestLinkedListSwap:BaseTest
+    public class LinkedListSwapTest:BaseTest
     {
         private LinkedListSwap _o;
-        public TestLinkedListSwap(ITestOutputHelper output):base(output)
+        public LinkedListSwapTest(ITestOutputHelper output):base(output)
         {
             _o=new LinkedListSwap(output);
         }

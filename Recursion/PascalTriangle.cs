@@ -1,4 +1,6 @@
+using System.Text;
 using leetcodeCsharp.Util;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace leetcodeCsharp.Recursion
@@ -23,6 +25,11 @@ namespace leetcodeCsharp.Recursion
         public int CalculateNumber(int i,int j)
         {   
             int result=0;
+            if (j>i)
+            {
+                return 0;
+            }
+
             //Base case
             if (j==0 ||j==i)
             {return 1;}
@@ -30,16 +37,44 @@ namespace leetcodeCsharp.Recursion
             return result;
 
         }
+        public void PrintTriangle(int x,int y)
+        { _output.WriteLine("");
+            for (int i=0;i<=x;i++)
+            { StringBuilder sb=new StringBuilder();
+                for (int j=0;j<=y;j++)
+                {
+                    sb.Append($"{CalculateNumber(i,j)}  ");
+                }
+                _output.WriteLine(sb.ToString());
+            }
+        }
 
 
 
     }
 
-    public class TestPascalTriangle:BaseTest
+    public class PascalTriangleTest:BaseTest
     {
     private PascalTriangle _o;
-    public TestPascalTriangle(ITestOutputHelper output) : base(output) => _o = new PascalTriangle(output);
+    public PascalTriangleTest(ITestOutputHelper output) : base(output) => _o = new PascalTriangle(output);
 
+    [Fact]
+    public void TestName()
+    {
+    //Given
 
+    //When
+
+    //Then
+    }
+    [Fact]
+    public void TestCalculateNumber()
+    {
+        Assert.Equal(1,_o.CalculateNumber(0,0));
+        Assert.Equal(1,_o.CalculateNumber(1,0));
+        Assert.Equal(1,_o.CalculateNumber(1,1));
+        Assert.Equal(2,_o.CalculateNumber(2,1));
+        _o.PrintTriangle(9,3);
+    }
     }
 }
