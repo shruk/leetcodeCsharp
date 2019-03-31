@@ -29,16 +29,16 @@ namespace leetcodeCsharp.Recursion
                 return head;
             }
             result=SwapNodes(head);
-            result.next=SwapLinkedList(result.next.next);
+            result.next.next=SwapLinkedList(result.next.next);
 
             return result;
         }
 
         private Node<int> SwapNodes(Node<int> head)
         {       
-            Node<int> newhead=head.next;
-            head.next=head.next.next;
-            newhead.next=head;
+            Node<int> newhead=head.next;// Copy reference to newly created reference 
+            head.next=head.next.next; // Assign reference.
+            newhead.next=head; // Assign reference.
             return newhead;
         }
 
