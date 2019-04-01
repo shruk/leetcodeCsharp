@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using leetcodeCsharp.Util;
 using Xunit;
@@ -23,7 +24,7 @@ namespace leetcodeCsharp.Recursion
         //     1
         //  1     1
         //1    2     1
-        public int CalculateNumber(int i,int j)
+        public int CalculateNumberByPos(int i,int j)
         {   
             int result=0;
             if (j>i)
@@ -34,7 +35,7 @@ namespace leetcodeCsharp.Recursion
             //Base case
             if (j==0 ||j==i)
             {return 1;}
-            result = CalculateNumber(i-1,j-1)+CalculateNumber(i-1,j);
+            result = CalculateNumberByPos(i-1,j-1)+CalculateNumberByPos(i-1,j);
             return result;
 
         }
@@ -44,7 +45,7 @@ namespace leetcodeCsharp.Recursion
             { StringBuilder sb=new StringBuilder();
                 for (int j=0;j<=y;j++)
                 {
-                    sb.Append($"{CalculateNumber(i,j)}  ");
+                    sb.Append($"{CalculateNumberByPos(i,j)}  ");
                 }
                 _output.WriteLine(sb.ToString());
             }
@@ -66,9 +67,53 @@ namespace leetcodeCsharp.Recursion
             {  result[i]=new int[i+1];
                 for (int j=0;j<i+1;j++)
                 {
-                   result[i][j]= CalculateNumber(i,j);
+                   result[i][j]= CalculateNumberByPos(i,j);
                 }
             }  
+            return result;
+        }
+
+        public IList<IList<int>> GenerateTriangleList(int row)
+        {
+             IList<IList<int>> result=new List<IList<int>>();
+             for (int i=0;i<row;i++)
+                {   
+                    IList<int> rowLi=new List<int>();
+                    
+                for (int j=0;j<i+1;j++)
+                {
+                   rowLi.Add(CalculateNumberByPos(i,j));
+                }
+                    result.Add(rowLi);
+            }  
+            return result;
+        }
+
+        // Return arary of row within Triangle
+        // So rowIndex started from 0,1,2,3
+        public int [] GetRowArray(int rowIndex)
+        {
+            int [] result=new int [rowIndex+1];
+
+            for (int j=0;j<rowIndex+1;j++)
+                {
+                   result[j]= CalculateNumberByPos(rowIndex,j);
+                }
+
+            return result;
+        }
+
+        // Return as IList
+        public IList<int> GetRowIList(int rowIndex)
+        {
+
+            IList<int> result=new List<int>();;
+
+            for (int j=0;j<rowIndex+1;j++)
+                {
+                   result.Add( CalculateNumberByPos(rowIndex,j));
+                }
+
             return result;
         }
         
@@ -103,10 +148,10 @@ namespace leetcodeCsharp.Recursion
     [Fact]
     public void TestCalculateNumber()
     {
-        Assert.Equal(1,_o.CalculateNumber(0,0));
-        Assert.Equal(1,_o.CalculateNumber(1,0));
-        Assert.Equal(1,_o.CalculateNumber(1,1));
-        Assert.Equal(2,_o.CalculateNumber(2,1));
+        Assert.Equal(1,_o.CalculateNumberByPos(0,0));
+        Assert.Equal(1,_o.CalculateNumberByPos(1,0));
+        Assert.Equal(1,_o.CalculateNumberByPos(1,1));
+        Assert.Equal(2,_o.CalculateNumberByPos(2,1));
         _o.PrintTriangleByPos(9,3);
     }
     [Fact]
