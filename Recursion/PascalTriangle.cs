@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using leetcodeCsharp.Util;
 using Xunit;
@@ -37,7 +38,7 @@ namespace leetcodeCsharp.Recursion
             return result;
 
         }
-        public void PrintTriangle(int x,int y)
+        public void PrintTriangleByPos(int x,int y)
         { _output.WriteLine("");
             for (int i=0;i<=x;i++)
             { StringBuilder sb=new StringBuilder();
@@ -49,8 +50,40 @@ namespace leetcodeCsharp.Recursion
             }
         }
 
-
-
+        //Array of Array, with each Array length could vary
+        //rownum:(1)        1
+        //rownum:(2)     1     1
+        //rownum:(3)   1    2     1
+        //rownum:(4) 1   3     3    1
+        public int [][] GenerateTriangle(int row)
+        {//Given non-negative row number
+            // decalre a jagged array because we need to hold different length of arrays in an array
+            // row number of array will be holded, zero based
+            // Each row will have row number of elements
+            // F(row) = current row + F(row -1) 
+            int [][] result=new int[row][];
+            for (int i=0;i<row;i++)
+            {  result[i]=new int[i+1];
+                for (int j=0;j<i+1;j++)
+                {
+                   result[i][j]= CalculateNumber(i,j);
+                }
+            }  
+            return result;
+        }
+        
+        public void PrintTriangle(int [][] triangle)
+        { _output.WriteLine("-------Start Printing");
+            for (int i=0;i<triangle.GetLength(0);i++)
+            {// Get Number of arraies we have in the jagged array
+                StringBuilder sb=new StringBuilder();
+                for (int j=0;j<triangle[i].Length;j++)
+                {
+                    sb.Append($"{triangle[i][j]} ");
+                }
+                _output.WriteLine(sb.ToString());
+            }
+        }
     }
 
     public class PascalTriangleTest:BaseTest
@@ -74,7 +107,12 @@ namespace leetcodeCsharp.Recursion
         Assert.Equal(1,_o.CalculateNumber(1,0));
         Assert.Equal(1,_o.CalculateNumber(1,1));
         Assert.Equal(2,_o.CalculateNumber(2,1));
-        _o.PrintTriangle(9,3);
+        _o.PrintTriangleByPos(9,3);
+    }
+    [Fact]
+    public void TestGenerateTriangle()
+    {
+        _o.PrintTriangle(_o.GenerateTriangle(10));
     }
     }
 }
