@@ -22,28 +22,56 @@ namespace leetcodeCsharp.Recursion
           // Move last tail to head.next of the new dummy list
           // Iterate over the original list and return the new list
           // Time Complexity O(n^2)
-            Node<int> dummy=new Node<int>(0);
-            Node<int> runner=head;
-            Node<int> builder=new Node<int>(0);
-            dummy.next=builder;
+            
+            if (head==null)
+            {
+                return null;
+            }
+            Node<int> dummy=new Node<int>(0); // Node to lead the next Linked list
+            Node<int> pre=head;// Assign reference of head to pre
+            Node<int> tail=head.next;// Assign reference of head.next to tail
+            Node<int> builder=dummy; // Builder for the next linked list
             bool isComplete=false;
             while(!isComplete)
-            {         
-                while (runner.next!=null)
+            {        
+                pre=head;
+                tail=pre.next;
+                if (tail!=null)
                 {
-                    if (runner==head)
-                    {//Last item
-                        isComplete=true;
-                    }else
-                    {
-                        isComplete=false;
-                    }
-                    runner=runner.next;
+                while (tail.next!=null)
+                {
+
+                    pre=pre.next;// Move pre forward
+                    tail=pre.next;// Move tail forward
                 }
-                builder.next=runner;
-                builder=runner;
+                //Remove tail from original list
+                pre.next=null;
+                //Building new list
+                builder.next=tail;
+                builder=builder.next;
+                }
+                else
+                {
+                    isComplete=true;
+                }
             }
-            return dummy.next.next;
+            builder.next=head;
+            return dummy.next;
+        }
+        
+        //Recusively solve
+        //head + Reverse(rest)=> head + Reverse(head.next)
+        public Node<int> ReverseLinkedListRec(Node<int> head)
+        {
+            Node<int> dummy=new Node<int>(0);
+            Node<int> builder=dummy;
+            if (head.next==null)
+            {
+                builder.next=head;
+                return dummy;
+            }
+            builder.next=ReverseLinkedListRec(head.next);
+
         }
         public void PrintLinkedList(Node<int> head)
         {
@@ -53,6 +81,7 @@ namespace leetcodeCsharp.Recursion
                 sb.Append($"{head.data}->");
                 head=head.next;
             }
+            _output.WriteLine(sb.ToString());
         }
     }
     public class LinkedListReverseTest:BaseTest
