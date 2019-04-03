@@ -63,15 +63,33 @@ namespace leetcodeCsharp.Recursion
         //head + Reverse(rest)=> head + Reverse(head.next)
         public Node<int> ReverseLinkedListRec(Node<int> head)
         {
-            Node<int> dummy=new Node<int>(0);
-            Node<int> builder=dummy;
-            if (head.next==null)
+            if (head ==null)
             {
-                builder.next=head;
-                return dummy;
+                return null;
             }
-            builder.next=ReverseLinkedListRec(head.next);
-
+            Node<int> builder;
+            Node<int> tail;
+            Node<int> pre;
+            if (head!=null && head.next==null)
+            {// Only one head left, return it.
+                return head;
+            }
+            else
+            {// Find tail, then add tail and remove tail from original list, 
+                // Continue to the next link
+                pre=head;
+                tail=head.next;
+                while (tail.next!=null)
+                {
+                    pre=tail;
+                    tail=tail.next;
+                }
+                pre.next=null; // Cut tail
+                builder=tail;
+                builder.next=ReverseLinkedListRec(head);
+                
+            }
+            return builder;
         }
         public void PrintLinkedList(Node<int> head)
         {
@@ -103,6 +121,50 @@ namespace leetcodeCsharp.Recursion
             n2.next=n3;
             n3.next=n4;
             _o.PrintLinkedList(_o.ReverseLinkedList(n1));
+             n1=new Node<int>(1);
+             n2=new Node<int>(2);
+             n3=new Node<int>(3);
+             n4=new Node<int>(4);
+            n1.next=n2;
+            n2.next=n3;
+            n3.next=n4;
+            _o.PrintLinkedList(_o.ReverseLinkedListRec(n1));
+        }
+
+        // Define a method to initilize speedtester with method handler
+        public void MethodHanderRec()
+        {
+            var n1=new Node<int>(1);
+            var n2=new Node<int>(2);
+            var n3=new Node<int>(3);
+            var n4=new Node<int>(4);
+            n1.next=n2;
+            n2.next=n3;
+            n3.next=n4;
+            _o.ReverseLinkedListRec(n1);
+        }
+
+        public void MethodHanderIter()
+        {
+            var n1=new Node<int>(1);
+            var n2=new Node<int>(2);
+            var n3=new Node<int>(3);
+            var n4=new Node<int>(4);
+            n1.next=n2;
+            n2.next=n3;
+            n3.next=n4;
+            _o.ReverseLinkedList(n1);
+        }
+
+        [Fact]
+        public void TestSpeed()
+        {
+            _st=new SpeedTester(MethodHanderIter);
+            _st.RunTest();
+            _output.WriteLine($"Iterative function Total running is : {_st.TotalRunningTime} milisec");
+            _st=new SpeedTester(MethodHanderRec);
+            _st.RunTest();
+            _output.WriteLine($"Recursive function Total running time is: {_st.TotalRunningTime} milisec");
         }
 
     }
