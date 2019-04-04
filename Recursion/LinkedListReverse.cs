@@ -59,6 +59,20 @@ namespace leetcodeCsharp.Recursion
             return dummy.next;
         }
         
+        // Accepted Solution
+        public Node<int> ReverseLinkedListPro(Node<int> head)
+        {
+            Node<int> pre=null;
+            Node<int> curr=head;
+            while(curr!=null)
+            {
+                Node<int> nextTemp=curr.next;
+                curr.next=pre;
+                pre=curr;
+                curr=nextTemp;
+            }
+            return pre;
+        }
         //Recusively solve
         //head + Reverse(rest)=> head + Reverse(head.next)
         public Node<int> ReverseLinkedListRec(Node<int> head)
@@ -129,6 +143,14 @@ namespace leetcodeCsharp.Recursion
             n2.next=n3;
             n3.next=n4;
             _o.PrintLinkedList(_o.ReverseLinkedListRec(n1));
+            n1=new Node<int>(1);
+             n2=new Node<int>(2);
+             n3=new Node<int>(3);
+             n4=new Node<int>(4);
+            n1.next=n2;
+            n2.next=n3;
+            n3.next=n4;
+            _o.PrintLinkedList(_o.ReverseLinkedListPro(n1));
         }
 
         // Define a method to initilize speedtester with method handler
