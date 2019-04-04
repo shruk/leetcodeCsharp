@@ -59,8 +59,10 @@ namespace leetcodeCsharp.Recursion
             return dummy.next;
         }
         
-        // Accepted Solution
-        public Node<int> ReverseLinkedListPro(Node<int> head)
+        // Accepted Solution, In place iterative solution
+        // Time Complexity O(n)
+        // Space Complexity O(1)
+        public Node<int> ReverseLinkedListProIter(Node<int> head)
         {
             Node<int> pre=null;
             Node<int> curr=head;
@@ -150,7 +152,7 @@ namespace leetcodeCsharp.Recursion
             n1.next=n2;
             n2.next=n3;
             n3.next=n4;
-            _o.PrintLinkedList(_o.ReverseLinkedListPro(n1));
+            _o.PrintLinkedList(_o.ReverseLinkedListProIter(n1));
         }
 
         // Define a method to initilize speedtester with method handler
@@ -178,6 +180,18 @@ namespace leetcodeCsharp.Recursion
             _o.ReverseLinkedList(n1);
         }
 
+        public void MethodHanderProIter()
+        {
+            var n1=new Node<int>(1);
+            var n2=new Node<int>(2);
+            var n3=new Node<int>(3);
+            var n4=new Node<int>(4);
+            n1.next=n2;
+            n2.next=n3;
+            n3.next=n4;
+            _o.ReverseLinkedListProIter(n1);
+        }
+
         [Fact]
         public void TestSpeed()
         {
@@ -187,6 +201,9 @@ namespace leetcodeCsharp.Recursion
             _st=new SpeedTester(MethodHanderRec);
             _st.RunTest();
             _output.WriteLine($"Recursive function Total running time is: {_st.TotalRunningTime} milisec");
+            _st=new SpeedTester(MethodHanderProIter);
+            _st.RunTest();
+            _output.WriteLine($"Pro Iterative function Total running time is: {_st.TotalRunningTime} milisec");
         }
 
     }
