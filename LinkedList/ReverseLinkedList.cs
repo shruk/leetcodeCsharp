@@ -12,6 +12,9 @@ namespace ReverseLinkedList
  
 public class Solution {
     //this solution is ok but not ideal as created extra vairable and complexity...
+    // Thought process, start from head, reverse the next pointer one by one to form a new linked list.
+    // Time complexity: O(n) but logic is not very clear.
+    // Space complexity: O(n) since we are create a new list so it is not in place. Not ideal.
     public static ListNode ReverseList(ListNode head) {
         ListNode dummy=new ListNode(0);
         ListNode newList=dummy;
