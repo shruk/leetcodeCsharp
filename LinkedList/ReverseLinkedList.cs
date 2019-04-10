@@ -32,7 +32,7 @@ public class Solution {
     }
 
     public static ListNode ReverseList2(ListNode head){
-        ListNode dummy;
+       // ListNode dummy;
         while (head!=null){}
         return null;
     }
