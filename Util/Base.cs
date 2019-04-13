@@ -2,7 +2,7 @@ using Xunit.Abstractions;
 
 namespace leetcodeCsharp.Util
 {
-    public class Base{
+    public abstract class Base{
         
        protected readonly ITestOutputHelper _output;
        public Base (ITestOutputHelper output)
