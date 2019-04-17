@@ -52,6 +52,30 @@ namespace leetcodeCsharp.Recursion
               }
               return ClimbStair(n-1)+ClimbStair(n-2);
           }
+
+          // Build recursion via memoization
+        public int ClimbStair_pro(int n)
+          { //memo[0]=0; memo[1]=1; memo[2]=2; memo[n]=memo[n-1]+memo[n-2]
+          int [] memo=new int[n+1];
+          return ClimbStair_(n,memo);
+          }
+          
+        public int ClimbStair_(int n,int [] memo)
+        {
+           if (n<0)
+           {
+             return 0;
+           }
+           if (n<=2)
+           {
+             memo[n]=n;
+           }
+           if (memo[n]=='\0')
+           {
+             memo[n]=ClimbStair_(n-1,memo)+ClimbStair_(n-2,memo);
+           }
+           return memo[n];
+        }
       }
       public class StairClimbTest:BaseTest
       {
@@ -68,6 +92,7 @@ namespace leetcodeCsharp.Recursion
             Assert.Equal(2,_o.ClimbStair(2));
             Assert.Equal(3,_o.ClimbStair(3));
             Assert.Equal(5,_o.ClimbStair(4));
+             Assert.Equal(_o.ClimbStair(4),_o.ClimbStair_pro(4));
         }
       }
 }
