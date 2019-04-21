@@ -79,7 +79,7 @@ namespace leetcodeCsharp.Recursion
       }
       public class StairClimbTest:BaseTest
       {
-          private StairClimb _o;
+        private StairClimb _o;
         public StairClimbTest(ITestOutputHelper output) : base(output)
         {
             _o=new StairClimb(output);
@@ -92,13 +92,13 @@ namespace leetcodeCsharp.Recursion
             Assert.Equal(2,_o.ClimbStair(2));
             Assert.Equal(3,_o.ClimbStair(3));
             Assert.Equal(5,_o.ClimbStair(4));
-             Assert.Equal(_o.ClimbStair(4),_o.ClimbStair_pro(4));
+            Assert.Equal(_o.ClimbStair(4),_o.ClimbStair_pro(4));
         }
 
         [Fact]
-        public void TestPerformance()
+        public override void TestPerformance()
         {
-          for (int i =0;i<=10000;i++)
+          for (int i =0;i<=100;i++)
           {
             _o.ClimbStair(i);
           }
