@@ -10,8 +10,8 @@ namespace leetcodeCsharp.Util
        {
            _output=output;
        }
-
-       public abstract void TestPerformance();
+        // virtual method may not be implemented by child class
+       public virtual void TestPerformance(){}
 
     }
 }
