@@ -94,5 +94,14 @@ namespace leetcodeCsharp.Recursion
             Assert.Equal(5,_o.ClimbStair(4));
              Assert.Equal(_o.ClimbStair(4),_o.ClimbStair_pro(4));
         }
+
+        [Fact]
+        public void TestPerformance()
+        {
+          for (int i =0;i<=10000;i++)
+          {
+            _o.ClimbStair(i);
+          }
+        }
       }
 }

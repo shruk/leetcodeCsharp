@@ -2,7 +2,7 @@ using Xunit.Abstractions;
 
 namespace leetcodeCsharp.Util
 {
-    public class BaseTest
+    public abstract class BaseTest
     {
        protected readonly ITestOutputHelper _output;
        protected SpeedTester _st;
@@ -10,6 +10,8 @@ namespace leetcodeCsharp.Util
        {
            _output=output;
        }
+
+       public abstract void TestPerformance();
 
     }
 }

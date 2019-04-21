@@ -48,7 +48,7 @@ namespace leetcodeCsharp.Util
             watch.Start();
             for (int i = 0; i < trials; i++)
             {
-                method.Invoke(); //run the method
+                this.method.Invoke(); //run the method
             }
             watch.Stop();
 
@@ -58,7 +58,7 @@ namespace leetcodeCsharp.Util
 
         //Incremental input test
         //Passing type into function
-        public void RunImcrementalTest<T>(T type)
+        public void RunIncrementalTest<T>(T type)
         {
             Stopwatch watch=new Stopwatch();
             watch.Start();
@@ -67,7 +67,7 @@ namespace leetcodeCsharp.Util
             for(int i=0;i<=1000;i++)
             {
                 //Generate i number of inputs
-               // this.methodInc(i).
+                //this.methodInc(i).Invoke();
             }
         }
     }
