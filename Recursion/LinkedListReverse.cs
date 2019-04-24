@@ -213,5 +213,11 @@ namespace leetcodeCsharp.Recursion
             _output.WriteLine($"Pro Recursive function Total running time is: {_st.TotalRunningTime} milisec");
         }
 
+        [Fact]
+        public override void TestPerformance()
+        {
+
+        }
+
     }
 }

@@ -18,6 +18,8 @@ namespace leetcodeCsharp.Util
         public MethodHandler method;
         public MethodHandlerInc methodInc;
 
+        private Stopwatch watch;
+
         public int TotalRunningTime
         {
             get { return totalRunningTime; }
@@ -26,6 +28,12 @@ namespace leetcodeCsharp.Util
         {
             get { return averageRunningTime; }
         }
+
+        public Stopwatch Watch
+        {
+            get {return this.watch;}
+            set {this.watch=value;}
+        }
         public SpeedTester()
         {
 
@@ -33,8 +41,13 @@ namespace leetcodeCsharp.Util
         public SpeedTester(MethodHandler methodToTest)
         {
             this.method = methodToTest;
+            Watch=new Stopwatch();
         }
 
+        public void RunSingleTest()
+        {
+           this.RunTest(1);
+        }
 
         public void RunTest()
         {
@@ -43,7 +56,6 @@ namespace leetcodeCsharp.Util
 
         public void RunTest(int trials)
         {
-            Stopwatch watch = new Stopwatch();
 
             watch.Start();
             for (int i = 0; i < trials; i++)
@@ -70,5 +82,7 @@ namespace leetcodeCsharp.Util
                 //this.methodInc(i).Invoke();
             }
         }
+
+
     }
 }
