@@ -216,7 +216,11 @@ namespace leetcodeCsharp.Recursion
         [Fact]
         public override void TestPerformance()
         {
-
+            var n1=CreateNode;
+            for (int i=0;i<=1000;i++)
+            {
+               // var n=new Node(random number);
+            }
         }
 
     }
