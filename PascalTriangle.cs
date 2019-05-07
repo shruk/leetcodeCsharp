@@ -9,7 +9,7 @@ public class Solution {
         IList<int> temp=new List<int>();
         
         
-        
+        //test internet
         for (int i=0;i<numRows;i++)
         {
             IList<int> li=new List<int>();//create an empty list for each row
